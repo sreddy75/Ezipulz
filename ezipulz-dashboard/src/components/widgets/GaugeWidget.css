@@ -1,0 +1,176 @@
+.gauge-widget {
+  background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%);
+  border: 1px solid #2a2a3e;
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.gauge-widget.good {
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.gauge-widget.warning {
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.gauge-widget.critical {
+  border-color: rgba(244, 63, 94, 0.3);
+}
+
+.gauge-header {
+  margin-bottom: 16px;
+}
+
+.gauge-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.gauge-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 4px 0 0 0;
+}
+
+.gauge-chart-container {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-chart {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.gauge-chart .chart-wrapper {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.gauge-center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.gauge-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.gauge-target {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.gauge-percentage {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+}
+
+.gauge-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--widget-border);
+}
+
+.gauge-legend {
+  display: flex;
+  gap: 16px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.legend-dot.actual {
+  background: var(--accent-blue);
+}
+
+.legend-dot.target {
+  background: var(--text-tertiary);
+}
+
+.legend-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.gauge-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gauge-status.good {
+  color: var(--accent-green);
+}
+
+.gauge-status.warning {
+  color: var(--accent-amber);
+}
+
+.gauge-status.critical {
+  color: var(--accent-red);
+}
+
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.gauge-refresh {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: 1px solid var(--widget-border);
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.gauge-refresh:hover {
+  background: var(--widget-border);
+  color: var(--text-primary);
+}
+
+.gauge-refresh:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

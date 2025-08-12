@@ -1,0 +1,61 @@
+.executive-page {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.page-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  height: 100%;
+}
+
+.widget-large {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+.widget-medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.pipeline-widget {
+  background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%);
+  border: 1px solid #2a2a3e;
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.pipeline-widget h3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pipeline-value {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8b5cf6, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.pipeline-cases {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
+}

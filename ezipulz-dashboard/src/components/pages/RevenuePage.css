@@ -1,0 +1,44 @@
+.revenue-page,
+.operations-page,
+.performance-page {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.coming-soon {
+  background: var(--widget-bg);
+  border: 1px solid var(--widget-border);
+  border-radius: 16px;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.coming-soon h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.coming-soon p {
+  font-size: 1.2rem;
+  color: var(--accent-blue);
+  margin-bottom: 32px;
+}
+
+.coming-soon ul {
+  list-style: none;
+  text-align: left;
+  max-width: 600px;
+}
+
+.coming-soon li {
+  padding: 8px 0;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--widget-border);
+}

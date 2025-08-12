@@ -1,0 +1,158 @@
+.revenue-widget {
+  background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%);
+  border: 1px solid #2a2a3e;
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.revenue-widget::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 50%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.revenue-header {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.revenue-value-section {
+  margin-bottom: 20px;
+}
+
+.revenue-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.revenue-value {
+  margin-bottom: 12px;
+}
+
+.value-text {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.skeleton-text {
+  width: 180px;
+  height: 48px;
+  background: linear-gradient(90deg, #2a2a3e 25%, #3a3a4e 50%, #2a2a3e 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.revenue-change {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.revenue-change.up {
+  color: #10b981;
+}
+
+.revenue-change.down {
+  color: #f43f5e;
+}
+
+.revenue-change svg {
+  width: 16px;
+  height: 16px;
+}
+
+.change-label {
+  color: #64748b;
+  font-weight: 400;
+  margin-left: 4px;
+}
+
+.revenue-breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.breakdown-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.breakdown-label {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.breakdown-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.revenue-chart {
+  flex: 1;
+  min-height: 120px;
+  position: relative;
+  z-index: 1;
+}
+
+.revenue-chart .chart-wrapper {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.revenue-chart .chart-header {
+  display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .value-text {
+    font-size: 2.5rem;
+  }
+  
+  .revenue-breakdown {
+    grid-template-columns: 1fr;
+  }
+}
