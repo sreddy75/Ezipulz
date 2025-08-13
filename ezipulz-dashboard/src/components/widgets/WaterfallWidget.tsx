@@ -25,15 +25,17 @@ export const WaterfallWidget: React.FC<WaterfallWidgetProps> = ({
   showCumulative = true,
   onRefresh
 }) => {
-  const initialData = propData?.breakdown || propData || [];
-  const [data, setData] = useState<WaterfallData[]>(initialData);
+  // Handle different data structures - look for data property or breakdown property
+  const initialData = propData?.data || propData?.breakdown || propData || [];
+  const [data, setData] = useState<WaterfallData[]>(Array.isArray(initialData) ? initialData : []);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (initialData) {
+    const rawData = propData?.data || propData?.breakdown || propData || [];
+    if (Array.isArray(rawData) && rawData.length > 0) {
       // Calculate cumulative values
       let cumulative = 0;
-      const processedData = initialData.map((item: any) => {
+      const processedData = rawData.map((item: any) => {
         if (item.type === 'total') {
           return { ...item, cumulative };
         }
@@ -42,7 +44,7 @@ export const WaterfallWidget: React.FC<WaterfallWidgetProps> = ({
       });
       setData(processedData);
     }
-  }, [initialData]);
+  }, [propData]);
 
   const handleRefresh = async () => {
     if (onRefresh) {
@@ -181,6 +183,7 @@ export const WaterfallWidget: React.FC<WaterfallWidgetProps> = ({
   };
 
   const getTotalValue = () => {
+    if (!Array.isArray(data)) return 0;
     return data.reduce((sum, item) => {
       if (item.type !== 'total') {
         return sum + item.value;

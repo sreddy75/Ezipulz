@@ -3,6 +3,7 @@ import { ExecutivePage } from '../pages/ExecutivePage';
 import { RevenuePage } from '../pages/RevenuePage';
 import { OperationsPage } from '../pages/OperationsPage';
 import { PerformancePage } from '../pages/PerformancePage';
+import { JiraPage } from '../pages/JiraPage';
 import './Dashboard.css';
 
 const pages = [
@@ -10,6 +11,7 @@ const pages = [
   { id: 'revenue', name: 'Revenue Details', duration: 5000, path: '/dashboard/revenue' },
   { id: 'operations', name: 'Operations', duration: 5000, path: '/dashboard/operations' },
   { id: 'performance', name: 'Performance', duration: 5000, path: '/dashboard/performance' },
+  { id: 'jira', name: 'JIRA Metrics', duration: 5000, path: '/dashboard/jira' },
 ];
 
 export const Dashboard: React.FC = () => {
@@ -141,6 +143,7 @@ export const Dashboard: React.FC = () => {
         {currentPage === 1 && <RevenuePage key={`revenue-${renderKey}`} />}
         {currentPage === 2 && <OperationsPage key={`operations-${renderKey}`} />}
         {currentPage === 3 && <PerformancePage key={`performance-${renderKey}`} />}
+        {currentPage === 4 && <JiraPage key={`jira-${renderKey}`} />}
       </main>
 
       <footer className="dashboard-footer">
