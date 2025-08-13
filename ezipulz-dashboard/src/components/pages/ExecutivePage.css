@@ -1,15 +1,19 @@
 .executive-page {
   width: 100%;
-  height: 100%;
+  min-height: calc(100vh - 164px); /* Account for header (80px) + footer (60px) + padding (24px * 2) */
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .page-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px;
-  height: 100%;
+  grid-template-rows: repeat(3, minmax(320px, 1fr));
+  gap: 16px;
+  width: 100%;
+  height: calc(100vh - 204px); /* Account for all container padding */
+  align-items: stretch;
+  justify-items: stretch;
 }
 
 .widget-large {
@@ -22,11 +26,77 @@
   grid-row: span 1;
 }
 
+/* Ensure all widgets fill their grid cells properly */
+.page-grid > * {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  box-sizing: border-box;
+}
+
+/* Ensure widget content is properly contained */
+.page-grid > * > * {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Override any widget-specific height settings that might break alignment */
+.revenue-widget,
+.gauge-widget,
+.donut-widget,
+.funnel-widget,
+.waterfall-widget,
+.radar-widget,
+.bullet-widget {
+  height: 100% !important;
+  min-height: 320px !important;
+  max-height: none !important;
+}
+
+/* Ensure all chart containers and SVG elements stay within widget boundaries */
+.page-grid .ag-chart,
+.page-grid .ag-chart-wrapper,
+.page-grid svg {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Additional chart containment and sizing */
+.page-grid .ag-chart-container {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+/* Force proper sizing for chart elements */
+.page-grid canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Ensure legends and stats are responsive and contained */
+.page-grid .legend-item,
+.page-grid .stat-item {
+  flex-shrink: 1 !important;
+  overflow: hidden !important;
+}
+
+.page-grid .legend-label,
+.page-grid .stat-label {
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+}
+
 .pipeline-widget {
   background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%);
   border: 1px solid #2a2a3e;
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -45,13 +115,13 @@
 }
 
 .pipeline-value {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   background: linear-gradient(135deg, #8b5cf6, #a855f7);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .pipeline-cases {

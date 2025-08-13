@@ -2,14 +2,16 @@
   background: linear-gradient(135deg, #1e1e2e 0%, #252538 100%);
   border: 1px solid #2a2a3e;
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .donut-header {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .donut-title {
@@ -22,15 +24,20 @@
 .donut-container {
   flex: 1;
   display: flex;
-  gap: 24px;
+  gap: 16px;
+  min-height: 220px;
+  align-items: stretch;
 }
 
 .donut-chart-wrapper {
-  flex: 1;
+  flex: 2;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
+  min-height: 220px;
+  max-height: 250px;
 }
 
 .donut-center {
@@ -43,7 +50,7 @@
 }
 
 .center-value {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1;
@@ -56,22 +63,26 @@
 }
 
 .donut-legend {
-  min-width: 150px;
+  flex: 1;
+  min-width: 100px;
+  max-width: 120px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   justify-content: center;
+  flex-shrink: 0;
+  overflow: auto;
 }
 
 .donut-legend .legend-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .donut-legend .legend-dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
 }
@@ -84,12 +95,24 @@
 }
 
 .donut-legend .legend-label {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--text-primary);
   font-weight: 500;
+  line-height: 1.2;
 }
 
 .donut-legend .legend-value {
   font-size: 0.75rem;
   color: var(--text-secondary);
+}
+
+/* Ensure chart content is properly displayed */
+.donut-chart-wrapper .chart-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.donut-chart-wrapper canvas {
+  max-width: 100% !important;
+  max-height: 100% !important;
 }

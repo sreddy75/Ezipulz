@@ -139,8 +139,9 @@
 
 .dashboard-content {
   flex: 1;
-  overflow: hidden;
+  overflow: auto;
   padding: 24px;
+  min-height: 0;
 }
 
 .dashboard-footer {

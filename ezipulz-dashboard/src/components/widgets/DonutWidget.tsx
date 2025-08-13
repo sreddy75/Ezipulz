@@ -25,7 +25,7 @@ export const DonutWidget: React.FC<DonutWidgetProps> = ({
   data: propData,
   centerValue,
   centerLabel,
-  height = 300,
+  height = 220,
   showLegend = true,
   onRefresh
 }) => {

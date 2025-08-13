@@ -22,7 +22,6 @@ export const Dashboard: React.FC = () => {
   
   useEffect(() => {
     console.log('Dashboard: Current page changed to:', currentPage, 'Page name:', pages[currentPage]?.name);
-    setRenderKey(prev => prev + 1); // Force re-render of components
   }, [currentPage]);
 
   useEffect(() => {
